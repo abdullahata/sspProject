@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="../css/theme.css">
+    <meta charset="utf-8">
+    <title></title>
+  <script>
+    function checkPassword(){
+      var p1=document.getElementsByName('password');
+      var p2=document.getElementsByName('RePassword');
+      var un=document.getElementsByName('username');
+      var eid=document.getElementsByName('EID');
+
+      var x=document.getElementById('errorMsg');
+
+      if(un[0].value==""){
+        x.innerHTML="Username can't be empty";
+      }
+      else if (eid[0].value==""){
+        x.innerHTML="Employee ID can't be empty";
+
+      }
+      else if (p1[0].value!=p2[0].value){
+        x.innerHTML="passwords doesn't match";
+      }
+      else if (p1[0].value.length<8){
+        x.innerHTML="Too short password";
+      }
+      else{
+        document.getElementById('newAcc').submit();
+      }
+    }
+  </script>
+  </head>
+  <body>
+<div class="main">
+<div class="content">
+<form  id="newAcc" action="LoginPage.php" method="post">
+<label for="username">Username:</label>
+<input type="text" name="username" value="" placeholder="______________________________________________________">
+<br><br>
+<label for="EID">Employee ID:</label>
+<input type="number" name="EID" value="" placeholder="______________________________________________________">
+<br><br>
+<label for="password">Password:</label>
+<input type="password" name="password" value="" placeholder="______________________________________________________">
+<br><br>
+<label for="RePassword">Re-Enter Password:</label>
+<input type="password" name="RePassword" value="" placeholder="______________________________________________________">
+<br><br>
+<div id="errorMsg"></div>
+<div id="buttons">
+<button id="loginBtn" type="button" name="submitBtn" onclick="checkPassword()">Create Account</button>
+</div>
+</form>
+</div>
+</div>
+
+  </body>
+</html>
